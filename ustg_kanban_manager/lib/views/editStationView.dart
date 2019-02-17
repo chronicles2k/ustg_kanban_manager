@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ustg_kanban_manager/viewmodels/homePageState.dart';
+import 'package:ustg_kanban_manager/viewmodels/editStationState.dart';
 
-class HomePageView extends HomePageState {
+class EditStationView extends EditStationState {
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -18,20 +18,35 @@ class HomePageView extends HomePageState {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$counter',
-              style: Theme.of(context).textTheme.display1,
+            Form(
+              key: formKey,
+              child: Column(
+                children: <Widget>[
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: "Station ID"
+                    ),
+                    validator: (v) {
+                      if (v.isEmpty) {
+                        return "Station ID is required";
+                      }
+                    },
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: RaisedButton(
+                      onPressed: () {
+                        if (formKey.currentState.validate()) {
+                          
+                        }
+                      },
+                    )
+                  ),
+                ],
+              ),
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
       drawer: Drawer(
         child: ListView(
@@ -42,15 +57,9 @@ class HomePageView extends HomePageState {
               title: Text("Home"),
               onTap: navigateToHome,
             ),
-            ListTile(
-              onTap: navigateToManageStations,
-              title: Text("Test"),
-            ),
-            ListTile()
           ],
         ),
       ),
     );
   }
 }
-

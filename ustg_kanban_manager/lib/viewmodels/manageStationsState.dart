@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ustg_kanban_manager/models/kanbanStation.dart';
+import 'package:ustg_kanban_manager/viewmodels/editStationState.dart';
 import 'package:ustg_kanban_manager/views/manageStationsView.dart';
 import 'package:ustg_kanban_manager/blocs/manageStationsBloc.dart';
 
@@ -13,7 +15,11 @@ abstract class ManageStationsState extends State<ManageStations> {
   }
 
   @protected
-  void navigateToAddStation() {}
+  void navigateToEditStation(KanbanStation station) {
+    Navigator.pop(context);
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => EditStation(station: station)));
+  }
 }
 
 class ManageStations extends StatefulWidget {
@@ -22,20 +28,3 @@ class ManageStations extends StatefulWidget {
   @override
   ManageStationsView createState() => ManageStationsView();
 }
-// class HomePage extends StatefulWidget {
-//   HomePage({Key key, this.title}) : super(key: key);
-
-//   // This widget is the home page of your application. It is stateful, meaning
-//   // that it has a State object (defined below) that contains fields that affect
-//   // how it looks.
-
-//   // This class is the configuration for the state. It holds the values (in this
-//   // case the title) provided by the parent (in this case the App widget) and
-//   // used by the build method of the State. Fields in a Widget subclass are
-//   // always marked "final".
-
-//   final String title;
-
-//   @override
-//   HomePageView createState() => HomePageView();
-// }

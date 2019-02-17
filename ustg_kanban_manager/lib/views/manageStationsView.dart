@@ -19,9 +19,11 @@ class ManageStationsView extends ManageStationsState {
               onTap: navigateToHome,
             ),
             ListTile(
-              onTap: navigateToAddStation,
+              onTap: () {
+                navigateToEditStation(KanbanStation());
+              },
               title: Text("Add Station"),
-            ),
+            ), 
             ListTile()
           ],
         ),
@@ -49,8 +51,8 @@ class ManageStationsView extends ManageStationsState {
         return ListTile(
           title: Text(snapshot.data[index].id),
           subtitle: Text(snapshot.data[index].name),
-          onTap: () => {
-            
+          onTap: () {
+            navigateToEditStation(snapshot.data[index]);
           },
         );
       },

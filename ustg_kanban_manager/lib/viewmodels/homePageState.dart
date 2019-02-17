@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ustg_kanban_manager/main.dart';
 import 'package:ustg_kanban_manager/viewmodels/manageStationsState.dart';
-import 'package:ustg_kanban_manager/views/manageStationsView.dart';
+import 'package:ustg_kanban_manager/views/homePageView.dart';
 
 abstract class HomePageState extends State<HomePage> {
   @protected
@@ -10,11 +9,6 @@ abstract class HomePageState extends State<HomePage> {
   @protected
   void incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       counter++;
     });
   }
@@ -31,4 +25,11 @@ abstract class HomePageState extends State<HomePage> {
   void navigateToHome() {
     Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
   }
+}
+
+class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
+
+  @override
+  HomePageView createState() => HomePageView();
 }

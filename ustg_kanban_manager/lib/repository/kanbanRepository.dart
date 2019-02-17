@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:ustg_kanban_manager/models/kanbanStation.dart';
 
 abstract class KanbanRepositoryBase {
@@ -12,7 +13,6 @@ class MockKanbanRepository implements KanbanRepositoryBase {
     var s = KanbanStation();
     s.id = "AA01";
     s.name = "Dragon POU";
-
     stations.add(s);
     return stations;
   }
