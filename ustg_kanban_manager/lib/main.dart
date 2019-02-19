@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ustg_kanban_manager/viewmodels/homePageState.dart';
 import 'package:ustg_kanban_manager/viewmodels/manageStationsState.dart';
-import 'package:ustg_kanban_manager/views/homePageView.dart';
-import 'package:ustg_kanban_manager/views/manageStationsView.dart';
 
 void main() => runApp(KanbanManagerApp());
 
