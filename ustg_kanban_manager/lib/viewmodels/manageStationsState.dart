@@ -18,10 +18,12 @@ abstract class ManageStationsState extends State<ManageStations> {
 
   @protected
   void navigateToEditStation(KanbanStation station) async {
+    print('navigate to edit station start');
     Navigator.pop(context);
     var editedStation = await Navigator.push(context,
         MaterialPageRoute(builder: (context) => EditStation(station: station)));
     await repo.updateStation(editedStation);
+    print('navigate to edit station end');
 //    setState(() {});
   }
 }

@@ -39,7 +39,9 @@ class MockKanbanRepository implements KanbanRepository {
 
   @override
   Future<List<KanbanStation>> getStations() async {
+    print('repo get stations start');
     await Future.delayed(const Duration(seconds: 2));
+    print('repo get stations end');
     return _list;
   }
 

@@ -48,15 +48,17 @@ class EditStationView extends EditStationState {
                     },
                   ),
                   Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 16.0),
-                      child: RaisedButton(
-                        onPressed: () {
-                          if (formKey.currentState.validate()) {
-                            formKey.currentState.save();
-                            Navigator.pop(context, widget.station);
-                          }
-                        },
-                      )),
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: RaisedButton(
+                      onPressed: () {
+                        if (formKey.currentState.validate()) {
+                          formKey.currentState.save();
+                          Navigator.pop(context, widget.station);
+                        }
+                      },
+                      child: Text("Save Changes")
+                    ),
+                  ),
                 ],
               ),
             ),
